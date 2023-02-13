@@ -19,4 +19,5 @@ RUN touch /cron/django_cron.log
 
 EXPOSE 8000
 
-CMD service cron start && python manage.py runserver 0.0.0.0:8000
+
+CMD python manage.py makemigrations && python manage.py migrate && service cron start && python manage.py runserver 0.0.0.0:8000
